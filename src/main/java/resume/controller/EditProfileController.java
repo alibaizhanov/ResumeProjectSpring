@@ -7,13 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import resume.repository.storage.SkillCategoryRepository;
+import resume.repository.storage.SkillCategoryRepository2;
 
 @Controller
 public class EditProfileController {
 
     @Autowired
-    private SkillCategoryRepository skillCategoryRepository;
+    private SkillCategoryRepository2 skillCategoryRepository;
 
     @RequestMapping(value = "/edit",method = RequestMethod.GET)
     public String getEdit(){
