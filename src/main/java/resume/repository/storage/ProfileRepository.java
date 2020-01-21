@@ -5,11 +5,12 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import resume.entity.Profile;
 
-public interface ProfileRepository extends PagingAndSortingRepository<Profile, Long> {
+public interface ProfileRepository extends PagingAndSortingRepository<Profile, Long> , CrudRepository<Profile,Long> {
 
     Profile findByUid(String uid);
 
