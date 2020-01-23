@@ -13,7 +13,6 @@
         </div>
         <form:form action="/edit/skills" method="post">
             <div id="ui-block-container">
-                <commandName>skillForm</commandName>
                 <c:forEach var="skill" items="${skillForm.items }" varStatus="status">
                     <resume:edit-skill-block index="${status.index}" skill="${skill }" />
                 </c:forEach>

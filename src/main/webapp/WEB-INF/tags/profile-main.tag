@@ -3,7 +3,7 @@
 <div class="panel panel-primary">
     <a href="/edit"><img class="img-responsive photo" src="/resume_war/static/ExamplePhoto/0d8cc569-89b3-4801-ad3c-47d3110e996a.jpg" alt="photo"></a>
     <h1 class="text-center">
-        <a style="color: black;" href="/resume_war/edit">${fullName}</a>
+        <a style="color: black;" href="/resume_war/edit">${profile.fullName}</a>
     </h1>
     <h6 class="text-center">
         <strong>Odessa, Ukraine</strong>

@@ -6,18 +6,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 import org.joda.time.LocalDate;
 import org.joda.time.Years;
@@ -100,7 +89,7 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
     @OrderBy("finishDate DESC")
     private List<Practic> practics;
 
-    @OneToMany(mappedBy = "profile", cascade={CascadeType.MERGE, CascadeType.PERSIST})
+    @OneToMany(mappedBy = "profile",fetch= FetchType.EAGER ,cascade={CascadeType.MERGE, CascadeType.PERSIST})
     @OrderBy("id ASC")
     private List<Skill> skills;
 
