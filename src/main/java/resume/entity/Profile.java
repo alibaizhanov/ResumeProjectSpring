@@ -335,4 +335,12 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
     public void setContacts(Contacts contacts) {
         this.contacts = contacts;
     }
+
+    private void updateListSetProfile(List<? extends ProfileEntity> list) {
+        if(list != null) {
+            for(ProfileEntity entity : list) {
+                entity.setProfile(this);
+            }
+        }
+    }
 }
