@@ -1,14 +1,12 @@
 package resume.repository.storage;
 
-import java.util.List;
 import org.springframework.data.domain.Sort;
-
-
-import org.springframework.data.repository.RepositoryDefinition;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import resume.entity.SkillCategory;
+import java.util.List;
 
-@RepositoryDefinition(domainClass = SkillCategory.class,idClass = Long.class)
-public interface SkillCategoryRepository {
+public interface SkillCategoryRepository extends PagingAndSortingRepository<SkillCategory,Long> {
 
-    List<SkillCategory> findAll(Sort sort);
+    @Override
+    List<SkillCategory> findAll();
 }

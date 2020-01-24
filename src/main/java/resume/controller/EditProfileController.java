@@ -2,28 +2,21 @@ package resume.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import javax.validation.Valid;
 import resume.form.SkillForm;
-import resume.repository.storage.ProfileRepository;
-import resume.repository.storage.SkillCategoryRepository2;
-
-import resume.repository.storage.ProfileRepository;
+import resume.service.EditProfileService;
+import resume.util.SecurityUtil;
 
 @Controller
 public class EditProfileController {
-
     @Autowired
-    private SkillCategoryRepository2 skillCategoryRepository;
-
-    @Autowired
-    private ProfileRepository profileRepository;
+    private EditProfileService editProfileService;
 
     @RequestMapping(value="/edit", method=RequestMethod.GET)
     public String getEditProfile(){
@@ -31,23 +24,22 @@ public class EditProfileController {
     }
 
     @RequestMapping(value = "/edit/skills", method = RequestMethod.GET)
-    public String getEditTechSkills(Model model) {
-        model.addAttribute("skillForm", new SkillForm(profileRepository.findById(1L).get().getSkills()));
+    public String getEditSkills(Model model) {
+        model.addAttribute("skillForm", new SkillForm(editProfileService.listSkills(SecurityUtil.getCurrentIdProfile())));
         return gotoSkillsJSP(model);
     }
 
-
     @RequestMapping(value = "/edit/skills", method = RequestMethod.POST)
-    public String saveEditTechSkills(@ModelAttribute("skillForm") SkillForm form, BindingResult bindingResult, Model model) {
+    public String saveEditSkills(@Valid @ModelAttribute("skillForm") SkillForm form, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             return gotoSkillsJSP(model);
         }
-        //TODO Update skills
+        editProfileService.updateSkills(SecurityUtil.getCurrentIdProfile(), form.getItems());
         return "redirect:/mike-ross";
     }
 
     private String gotoSkillsJSP(Model model){
-        model.addAttribute("skillCategories", skillCategoryRepository.findAll());
+        model.addAttribute("skillCategories", editProfileService.listSkillCategories());
         return "edit/skills";
     }
 }
