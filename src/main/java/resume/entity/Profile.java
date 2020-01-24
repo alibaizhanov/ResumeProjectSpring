@@ -240,7 +240,7 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
     }
 
     public String getSmallPhoto() {
-        return smallPhoto;
+        return "/resume_war/"+ smallPhoto;
     }
 
     public void setSmallPhoto(String smallPhoto) {

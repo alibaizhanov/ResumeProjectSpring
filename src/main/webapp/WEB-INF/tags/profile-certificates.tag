@@ -7,8 +7,8 @@
         </h3>
     </div>
     <div class="panel-body">
-        <a data-url="/media/certificates/10e5b86b-fd5b-490a-9090-6e71270ed40f.jpg" data-title="Jee certificate" href="#" class="thumbnail certificate-link">
-            <img alt="Jee certificate" src="/media/certificates/10e5b86b-fd5b-490a-9090-6e71270ed40f-sm.jpg" class="img-responsive"> <span>Jee certificate</span>
+        <a data-url="/resume_war/media/certificates/4c5c96ca-53c3-4f73-af0c-a6a34e7c1f16.jpg" data-title="Jee certificate" href="#" class="thumbnail certificate-link">
+            <img alt="Jee certificate" src="/resume_war/media/certificates/4c5c96ca-53c3-4f73-af0c-a6a34e7c1f16-sm.jpg" class="img-responsive"> <span>Jee certificate</span>
         </a>
     </div>
 </div>

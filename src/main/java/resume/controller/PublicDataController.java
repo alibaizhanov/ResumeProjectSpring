@@ -42,7 +42,7 @@ public class PublicDataController {
 
     @RequestMapping(value = { "/welcome" })
     public String listAll(Model model) {
-        Page<Profile> profiles = findProfileService.findAll(PageRequest.of(0, Constants.MAX_PROFILES_PER_PAGE, Sort.by("")));
+        Page<Profile> profiles = findProfileService.findAll(PageRequest.of(0, Constants.MAX_PROFILES_PER_PAGE, Sort.by("id")));
         model.addAttribute("profiles", profiles.getContent());
         model.addAttribute("page", profiles);
         return "profiles";

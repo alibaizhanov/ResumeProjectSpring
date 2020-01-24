@@ -1,7 +1,7 @@
 <%@ tag pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 
 <div class="panel panel-primary">
-    <a href="/edit"><img class="img-responsive photo" src="/resume_war/static/ExamplePhoto/0d8cc569-89b3-4801-ad3c-47d3110e996a.jpg" alt="photo"></a>
+    <a href="/edit"><img class="img-responsive photo" src="/resume_war/${profile.largePhoto}" alt="photo"></a>
     <h1 class="text-center">
         <a style="color: black;" href="/resume_war/edit">${profile.fullName}</a>
     </h1>
