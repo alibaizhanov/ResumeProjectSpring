@@ -12,5 +12,9 @@ import resume.entity.Profile;
 public interface FindProfileService {
 
     Profile findByUid(String uid);
-    public Page<Profile> findAll(Pageable pageable);
+    Page<Profile> findAll(Pageable pageable);
+
+    Iterable<Profile> findAllForIndexing();
+
+    Page<Profile> findBySearchQuery(String query, Pageable pageable);
 }

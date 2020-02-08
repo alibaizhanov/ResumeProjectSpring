@@ -49,8 +49,7 @@ public class PublicDataController {
     }
 
     @RequestMapping(value = "/fragment/more", method = RequestMethod.GET)
-    public String moreProfiles(Model model,
-                               @PageableDefault(size=Constants.MAX_PROFILES_PER_PAGE) @SortDefault(sort="id") Pageable pageable) throws UnsupportedEncodingException {
+    public String moreProfiles(Model model, @PageableDefault(size=Constants.MAX_PROFILES_PER_PAGE) @SortDefault(sort="id") Pageable pageable) throws UnsupportedEncodingException {
         Page<Profile> profiles = findProfileService.findAll(pageable);
         model.addAttribute("profiles", profiles.getContent());
         return "fragment/profile-items";
