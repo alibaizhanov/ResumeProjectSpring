@@ -2,6 +2,8 @@ package resume.entity;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -29,6 +31,7 @@ public class ProfileRestore extends AbstractEntity<Long> implements Serializable
 
     @OneToOne(fetch=FetchType.LAZY, optional=false)
     @JoinColumn(name="id", nullable=false)
+    @JsonIgnore
     private Profile profile;
 
     @Column(nullable = false, unique = true, length = 100)

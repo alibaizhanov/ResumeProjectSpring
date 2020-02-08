@@ -1,6 +1,8 @@
 package resume.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -39,6 +41,7 @@ public class Skill extends AbstractEntity<Long> implements Serializable, Profile
     //bi-directional many-to-one association to Profile
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="id_profile", nullable=false)
+    @JsonIgnore
     private Profile profile;
 
     public Skill() {

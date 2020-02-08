@@ -35,9 +35,10 @@ public class ElasticSearchIndexingService {
         if(indexAllDuringStartup) {
             LOGGER.info("Detected index all command");
             LOGGER.info("Clear old index");
-            elasticsearchOperations.deleteIndex(Profile.class);
+           // elasticsearchOperations.deleteIndex(Profile.class);
             LOGGER.info("Start index of profiles");
             for(Profile p : findProfileService.findAllForIndexing()){
+                System.out.println(p);
                 profileSearchRepository.save(p);
                 LOGGER.info("Successful indexing of profile: "+p.getUid());
             }

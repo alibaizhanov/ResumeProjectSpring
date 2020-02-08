@@ -13,8 +13,8 @@ import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 import java.net.InetAddress;
 
-//@Configuration
-//@EnableElasticsearchRepositories("resume.repository.search")
+@Configuration
+@EnableElasticsearchRepositories("resume.repository.search")
 public class ElasticSearchConfig {
 
 
@@ -32,17 +32,19 @@ public class ElasticSearchConfig {
 
         TransportClient client = null;
         Settings elasticsearchSettings = Settings.builder()
-                .put("client.transport.sniff", true)
-                .put("path.home", elasticSearchHome)
-                .put("cluster.name", "docker-cluster2").build();
+                //.put("client.transport.sniff", true)
+               // .put("path.home", elasticSearchHome)
+                .put("cluster.name", "new_master").build();
         client = new PreBuiltTransportClient(elasticsearchSettings);
-        client.addTransportAddress(new TransportAddress(InetAddress.getByName("127.0.0.1"), 9200));
+        client.addTransportAddress(new TransportAddress(InetAddress.getByName("127.0.0.1"), 9300));
 
-        return client();
+        return client;
     }
 
     @Bean
     public ElasticsearchOperations elasticsearchTemplate() throws UnknownHostException{
         return new ElasticsearchTemplate(client());
     }
+
+
 }
