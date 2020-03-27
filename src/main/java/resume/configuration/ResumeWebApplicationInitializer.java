@@ -20,10 +20,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 import resume.filter.ResumeFilter;
 import resume.listener.ApplicationListener;
 
-/**
- *
- * @author devstudy
- */
+
 public class ResumeWebApplicationInitializer implements WebApplicationInitializer {
 
     @Override
