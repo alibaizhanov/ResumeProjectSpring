@@ -16,10 +16,7 @@ import javax.validation.Payload;
 
 import resume.validator.EnglishLanguageConstraintValidator;
 
-/**
- *
- * @author devstudy
- */
+
 @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 @Retention(RUNTIME)
 @Documented
